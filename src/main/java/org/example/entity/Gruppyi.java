@@ -19,7 +19,13 @@ public class Gruppyi implements java.io.Serializable {
     private int kodPlana;
     private String status;
     private Date statusDate;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "gruppyi")
+
     private List<Studentyi> studentyis;
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "specialty", referencedColumnName = "id", insertable = false, updatable = false)
+    private Specialty specialty;
 
     public Gruppyi(Specialty specialty) {
         this.specialty = specialty;
@@ -102,16 +108,9 @@ public class Gruppyi implements java.io.Serializable {
         this.statusDate = statusDate;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "gruppyi")
     public List<Studentyi> getStudentyis() {
         return this.studentyis;
     }
-
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "specialty", referencedColumnName = "id", insertable = false, updatable = false)
-    private Specialty specialty;
-
-
     public void setStudentyis(List<Studentyi> studentyis) {
         this.studentyis = studentyis;
     }

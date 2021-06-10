@@ -22,6 +22,7 @@ public class Specialty {
     private Collection<Gruppyi> gruppyis;
 
 
+
     public Long getId() {
         return id;
     }

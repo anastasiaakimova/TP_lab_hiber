@@ -142,4 +142,14 @@ public class Studentyi  implements java.io.Serializable {
     public void setStatusDate(Date statusDate) {
         this.statusDate = statusDate;
     }
+
+    @Override
+    public String toString() {
+        return "Studentyi{" +
+                "nomerZachetki= " + nomerZachetki +
+                ", gruppyi= " + gruppyi +
+                ", familiya= " + familiya +
+                ", imya= " + imya +
+                ", otchestvo= " + otchestvo;
+    }
 }
